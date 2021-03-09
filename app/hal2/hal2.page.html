@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Halaman 2
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div>
+          <ion-button (click)="keSatu()" style="float:left"><</ion-button>
+        </div>
+      </ion-col>
+      <ion-col size="6">
+        <div>
+        <h1 style="text-align:center;">List Note (sliding)</h1>
+      </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          <ion-button (click)="keTiga()" style="float:right">></ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+ 
+  
+  <div id="container">
+    <ion-list>
+      <div *ngFor="let note of notes; let i = index">
+        <ion-item-sliding>
+          <ion-item>
+            {{ i+1 }}. {{ note.judul }} - {{ note.tanggal }}<br/><br/>{{note.isi}}<br/><br/>
+          </ion-item>
+          <ion-item-options side="end">
+            <ion-item-option (click)="favorite(i)">Fav</ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+      </div>
+    </ion-list>
+  </div>
+</ion-content>

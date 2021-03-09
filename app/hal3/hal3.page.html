@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Halaman 3
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div>
+          <ion-button (click)="keDua()" style="float:left"><</ion-button>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+        <h2 style="text-align:center;">Favorite Note(s)</h2>
+      </div>
+      </ion-col>
+      <ion-col>
+        <div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+ 
+  
+  <div id="container">
+    <ion-list>
+      <div *ngFor="let note of notes; let i = index">
+        <div *ngIf="note.favorite === true">
+        <ion-item-sliding>
+          <ion-item>
+            {{ i+1 }}. {{ note.judul }} - {{ note.tanggal }}<br/><br/>{{note.isi}}<br/><br/>
+          </ion-item>
+          <ion-item-options side="end">
+            <ion-item-option color="danger" (click)="unfavorite(i)">unFav</ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+      </div>
+      </div>
+    </ion-list>
+  </div>
+</ion-content>
